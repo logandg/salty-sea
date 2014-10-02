@@ -1,0 +1,26 @@
+<h1>SaltySea</h1>
+
+<div ng-hide="droplet_resource.$resolved"><h2>Loading...</h2></div>
+<div id="droplet-details" ng-show="droplet_resource.$resolved">
+
+
+    <h2>Droplet: {{droplet.name}} </h2>
+
+    <div id="droplet-do-info">
+        <span id="droplet-do-info-id">ID: {{droplet.id}}</span> |
+        <span id="droplet-do-info-image">Image: {{droplet.image.name}}</span> |
+        <span id="droplet-do-info-kernel">Kernel: {{droplet.kernel.name}}</span> |
+        <span id="droplet-do-info-ram">Memory: {{droplet.memory}}</span> |
+        <span id="droplet-do-info-disk">Disk: {{droplet.disk}}</span> |
+        <span id="droplet-do-info-region">Region: {{droplet.region.slug}}</span> |
+        <span id="droplet-do-info-created">Created: {{droplet.created_at | date}}</span>
+    </div>
+    <div id="droplet-salt-highstate">
+        <h3>HighState:</h3>
+    </div>
+    <div id="droplet-salt-pillar">
+        <h3>Pillar Data</h3>
+    </div>
+
+
+</div>

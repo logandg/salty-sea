@@ -1,0 +1,39 @@
+<h1>SaltySea - Another DigitalOcean Control Panel integrated with Salt</h1>
+
+<div ng-hide="droplet_resource.$resolved"><h2>Loading...</h2></div>
+<div id="home-droplets" ng-show="droplet_resource.$resolved">
+<h2>Your Droplets:</h2>
+
+
+<p>
+    <table class="droplets">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Image</th>
+                <th>IPV4</th>
+                <th>RAM</th>
+                <th>Disk</th>
+                <th>Region</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="droplet in droplet_resource.droplets" ng-class-even="'even'">
+                <td class="droplet_name"><a href="#/droplet/{{droplet.id}}">{{droplet.name}}</a></td>
+                <td class="droplet_image">{{droplet.image.name}}</td>
+                <td class="droplet_network"><ul class="network_interfaces">
+                    <li ng-repeat="interface in droplet.networks.v4"> {{interface.ip_address}}</li>
+                    </ul>
+                </td>
+                <td class="droplet_memory">{{droplet.memory}}</td>
+                <td class="droplet_disk">{{droplet.disk}}</td>
+                <td class="droplet_region">{{droplet.region.slug}}</td>
+                <td class="droplet_status">{{droplet.status}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</p>
+</div>
