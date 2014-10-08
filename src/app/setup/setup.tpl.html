@@ -1,0 +1,19 @@
+<h1>SaltySea - Setup</h1>
+
+<div id="salty-setup">
+<p>
+    First before using salty you will need to set it up with your DigitalOcean API key and your API key for the Salt backend.
+</p>
+<p>
+    <div ng-controller="SetupController">
+        <form novalidate id="setup-form">
+            DO API Key: <input type="text" ng-model="config.keys.digital_ocean" /><span ng-show="setup.errors.digital_ocean">Incorrect DO config</span><br />
+            Salt Backend Host: <input type="text" ng-model="config.urls.salt" /><br />
+            Salt API Key: <input type="text" ng-model="config.keys.salt" />
+            <span ng-show="setup.errors.salt">Incorrect Salt config</span>
+            <button ng-click="setup.update()">SAVE</button>
+        </form>
+
+    </div>
+</p>
+</div>

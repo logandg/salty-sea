@@ -4,7 +4,11 @@
 <div id="home-droplets" ng-show="droplet_resource.$resolved">
 <h2>Your Droplets:</h2>
 
-
+Bulk Actions:
+<select ng-model="selected_bulk_action" ng-options="action.name for action in bulk_actions_list">
+    <option value="">-- Choose Bulk Action --</option>
+</select>
+<button ng-show="selected_bulk_action" ng-click="takeBulkAction()">Apply</button>
 <p>
     <table class="droplets">
         <thead>
@@ -20,6 +24,7 @@
         </thead>
         <tbody>
             <tr ng-repeat="droplet in droplet_resource.droplets" ng-class-even="'even'">
+                <td><input type="checkbox" ng-model="droplet.selected" /></td>
                 <td class="droplet_name"><a href="#/droplet/{{droplet.id}}">{{droplet.name}}</a></td>
                 <td class="droplet_image">{{droplet.image.name}}</td>
                 <td class="droplet_network"><ul class="network_interfaces">
